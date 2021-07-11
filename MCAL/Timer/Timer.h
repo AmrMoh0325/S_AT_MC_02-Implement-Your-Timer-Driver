@@ -1,7 +1,13 @@
+/*****************************************************************************
+* Task: TIMER_DRIVER
+* File Name: Timer.h
+* Description: File containing function prototypes for Timer.c
+* Author: Amr Mohamed
+* Date: 10/7/2021
+******************************************************************************/
 
-
-#ifndef TIMERS_H_
-#define TIMERS_H_
+#ifndef __TIMER__
+#define __TIMER__
 
 #include "DataTypes.h"
 #include "Utils.h"
@@ -116,4 +122,4 @@ enuErrorStatus_t T0_GetStatus(void);
 
 
 
-#endif /* TIMERS_H_ */
+#endif /* __TIMER__ */

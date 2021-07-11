@@ -1,9 +1,10 @@
-/*
- * AVR_Drivers.c
- *
- * Created: 7/7/2021 8:22:53 PM
- * Author : Amrth
- */ 
+/*****************************************************************************
+* Task: TIMER_DRIVER
+* File Name: main.c
+* Description: Main file
+* Author: Amr Mohamed
+* Date: 10/7/2021
+******************************************************************************/
 
 
 #include "Register.h"
