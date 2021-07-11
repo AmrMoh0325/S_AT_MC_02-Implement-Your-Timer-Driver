@@ -1,0 +1,203 @@
+/*****************************************************************************
+* Task: AVR_DRIVERS
+* File Name: Register.h
+* Description: File for AVR Register definitions
+* Author: Amr Mohamed
+* Date: 8/7/2021
+******************************************************************************/
+
+#ifndef __REGISTER__
+#define __REGISTER__
+
+#define  F_CPU    8000000UL
+
+/* DIO_Registers */
+#define DDRA_R  (*(volatile unsigned char*)0x3A)
+#define DDRB_R  (*(volatile unsigned char*)0x37)
+#define DDRC_R  (*(volatile unsigned char*)0x34)
+#define DDRD_R  (*(volatile unsigned char*)0x31)
+
+#define PINA_R  (*(volatile unsigned char*)0x39)
+#define PINB_R  (*(volatile unsigned char*)0x36)
+#define PINC_R  (*(volatile unsigned char*)0x33)
+#define PIND_R  (*(volatile unsigned char*)0x30)
+
+#define PORTA_R (*(volatile unsigned char*)0x3B)
+#define PORTB_R (*(volatile unsigned char*)0x38)
+#define PORTC_R (*(volatile unsigned char*)0x35)
+#define PORTD_R (*(volatile unsigned char*)0x32)
+/************************************************************************************************/
+
+
+/************************************************************************************************/
+/* Timer 0 */
+#define TCNT0_R   (*(volatile unsigned char*)0x52)
+#define TCCR0_R   (*(volatile unsigned char*)0x53)
+/* TCCR0 */
+#define FOC0_B    7
+#define WGM00_B   6
+#define COM01_B   5
+#define COM00_B   4
+#define WGM01_B   3
+#define CS02_B    2
+#define CS01_B    1
+#define CS00_B    0
+
+#define TWCR_R    (*(volatile unsigned char*)0x56)
+#define SPMCR_R   (*(volatile unsigned char*)0x57)
+#define TIFR_R    (*(volatile unsigned char*)0x58)
+/* TIFR */
+#define TOV0_B    0
+#define OCF0_B    1
+#define TOV1_B    2
+#define OCF1B_B   3
+#define OCF1A_B   4
+#define ICF1_B    5
+#define TOV2_B    6
+#define OCF2_B    7
+ 
+#define TIMSK_R   (*(volatile unsigned char*)0x59)
+/* TIMSK */
+#define OCIE2_B   7
+#define TOIE2_B   6
+#define TICIE1_B  5
+#define OCIE1A_B  4
+#define OCIE1B_B  3
+#define TOIE1_B   2
+#define OCIE0_B   1
+#define TOIE0_B   0
+
+#define OCR0_R    (*(volatile unsigned char*)0x5C)
+/****************************************************************************************************/
+
+/*TIMER 1*/
+
+
+#define ICR1_R			(*(volatile unsigned short*)0x46)
+#define ICR1L_R		(*(volatile unsigned char*)0x46)
+#define ICR1H_R		(*(volatile unsigned char*)0x47)
+#define OCR1B_R		(*(volatile unsigned short*)0x48)
+#define OCR1BL_R		(*(volatile unsigned char*)0x48)
+#define OCR1BH_R		(*(volatile unsigned char*)0x49)
+#define OCR1A_R		(*(volatile unsigned short*)0x4A)
+#define OCR1AL_R		(*(volatile unsigned char*)0x4A)
+#define OCR1AH_R		(*(volatile unsigned char*)0x4B)
+#define TCNT1_R		(*(volatile unsigned short*)0x4C)
+#define TCNT1L_R		(*(volatile unsigned char*)0x4C)
+#define TCNT1H_R		(*(volatile unsigned char*)0x4D)
+#define TCCR1B_R     (*(volatile unsigned char*)0x4E)
+#define TCCR1A_R     (*(volatile unsigned char*)0x4F)
+#define SFIOR_R		(*(volatile unsigned char*)0x50)
+#define OSCCAL_R		(*(volatile unsigned char*)0x51)
+/*************************************************************************************************/
+/* Timer 2 */
+
+#define OCR2_R       (*(volatile unsigned char*)0x43)
+#define TCNT2_R      (*(volatile unsigned char*)0x44)
+#define TCCR2_R      (*(volatile unsigned char*)0x45)
+
+
+
+
+/* TCCR2 */
+#define FOC2_B    7
+#define WGM20_B   6
+#define COM21_B   5
+#define COM20_B   4
+#define WGM21_B   3
+#define CS22_B    2
+#define CS21_B    1
+#define CS20_B    0
+
+/* ASSR */
+/* bits 7-4 reserved */
+#define AS2_B     3
+#define TCN2UB_B  2
+#define OCR2UB_B  1
+#define TCR2UB_B  0
+
+/* TCCR1A */
+#define COM1A1_B  7
+#define COM1A0_B  6
+#define COM1B1_B  5
+#define COM1B0_B  4
+#define FOC1A_B   3
+#define FOC1B_B   2
+#define WGM11_B   1
+#define WGM10_B   0
+
+/* TCCR1B */
+#define ICNC1_B   7
+#define ICES1_B   6
+/* bit 5 reserved */
+#define WGM13_B   4
+#define WGM12_B   3
+#define CS12_B    2
+#define CS11_B    1
+#define CS10_B    0
+
+
+/*************************************************************************************************/
+
+/* Interrupt vectors */
+/* External Interrupt Request 0 */
+#define INT0_vect             __vector_1
+/* External Interrupt Request 1 */
+#define INT1_vect		         __vector_2
+/* External Interrupt Request 2 */
+#define INT2_vect		         __vector_3
+/* Timer/Counter2 Compare Match */
+#define TIMER2_COMP_vect		__vector_4
+/* Timer/Counter2 Overflow */
+#define TIMER2_OVF_vect			__vector_5
+/* Timer/Counter1 Capture Event */
+#define TIMER1_ICU_vect		   __vector_6
+/* Timer/Counter1 Compare Match A */
+#define TIMER1_OCA_vect		   __vector_7
+/* Timer/Counter1 Compare Match B */
+#define TIMER1_OCB_vect		   __vector_8
+/* Timer/Counter1 Overflow */
+#define TIMER1_OVF_vect			__vector_9
+/* Timer/Counter0 Compare Match */
+#define TIMER0_OC_vect		   __vector_10
+/* Timer/Counter0 Overflow */
+#define TIMER0_OVF_vect			__vector_11
+/* Serial Transfer Complete */
+#define SPI_STC_vect			   __vector_12
+/* USART, Rx Complete */
+#define UART_RX_vect			   __vector_13
+/* USART Data Register Empty */
+#define UART_UDRE_vect			__vector_14
+/* USART, Tx Complete */
+#define UART_TX_vect			   __vector_15
+/* ADC Conversion Complete */
+#define ADC_vect			      __vector_16
+/* EEPROM Ready */
+#define EE_RDY_vect			   __vector_17
+/* Analog Comparator */
+#define ANA_COMP_vect			__vector_18
+/* 2-wire Serial Interface */
+#define TWI_vect			      __vector_19
+/* Store Program Memory Ready */
+#define SPM_RDY_vect			   __vector_20
+
+#  define BAD_vect            __vector_default
+
+/*interrupt functions*/
+
+# define sei()  __asm__ __volatile__ ("sei" ::)
+# define cli()  __asm__ __volatile__ ("cli" ::)
+# define reti()  __asm__ __volatile__ ("reti" ::)
+# define ret()  __asm__ __volatile__ ("ret" ::)
+
+#  define ISR_NOBLOCK    __attribute__((interrupt))
+#  define ISR_NAKED      __attribute__((naked))
+
+
+
+#  define ISR(vector,...)            \
+void vector (void) __attribute__ ((signal))__VA_ARGS__ ; \
+void vector (void)
+
+
+#endif /* __REGISTER__ */
