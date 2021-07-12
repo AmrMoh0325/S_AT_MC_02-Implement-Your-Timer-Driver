@@ -52,6 +52,8 @@ int main(void)
       //if button 1 is pressed
       if (u8button1_flag==BTN1_PRESSED)
       {
+         //Enable Timer overflow interrupt
+         T0_OV_InterruptEnable();
          //set up the delay function using timer
          T0_Start(1000000,led_Toggle);
          //loop on the button until it is released
@@ -71,25 +73,31 @@ int main(void)
             DIO_Read(Button2,&u8button2_flag);
          }
       }      
-   }
-   
-   
-   
-   
-   //test without interrupt
-   /*volatile uint8_t T_Flag=0;
-   DIO_Init();
-   T0_Init(TIMER0_NORMAL_MODE,TIMER0_SCALER_8);
-   T0_Start(1000,NULLPTR);
-   TOG_BIT(PORTC_R,2);
-   while (1) 
-   {
-      T_Flag=T0_GetStatus();
-      if (T_Flag)
-      {
-         TOG_BIT(PORTC_R,2);
-         T0_Start(1000,NULLPTR);
-      }
-   }*/
+   }   
 }
 
+/*
+ //test without interrupt
+int main(void)
+{
+   volatile uint8_t T_Flag=0;
+   //Initialize DIO
+   DIO_Init();
+   //Initialize timer 0
+   T0_Init(TIMER0_NORMAL_MODE,TIMER0_SCALER_8);
+   //start a delay of 1000 micro seconds
+   T0_Start(1000,NULLPTR);
+   while(1)
+   {
+      //keep checking if the timer's time is up
+      T_Flag=T0_GetStatus();
+      //if it's up
+      if (T_Flag)
+      {
+       //toggle the leds
+         led_Toggle();
+         //and start another delay
+         T0_Start(1000,NULLPTR);
+      }      
+   }
+}*/
